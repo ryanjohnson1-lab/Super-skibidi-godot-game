@@ -1,11 +1,15 @@
 [gd_scene format=3 uid="uid://beuw4oepoxv0c"]
 
+[ext_resource type="PackedScene" uid="uid://d2ppyp7gbmh2a" path="res://background.tscn" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://bes6cltrbh2sx" path="res://character_body_2d.tscn" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://tidol260r17c" path="res://area_2d.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://cwu4pt87wt4yj" path="res://portal.tscn" id="2_0xm2m"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ig7tw"]
 
 [node name="Main" type="Node2D" unique_id=935228097]
+
+[node name="Background" parent="." unique_id=131879365 instance=ExtResource("1_h2yge")]
+position = Vector2(564, 288)
 
 [node name="Player" parent="." unique_id=1793049614 instance=ExtResource("1_ig7tw")]
 position = Vector2(84, 618)
@@ -13,8 +17,17 @@ position = Vector2(84, 618)
 [node name="Ground" type="StaticBody2D" parent="." unique_id=2012756506]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=1346078695]
-position = Vector2(492, 647)
+position = Vector2(489, 647)
 shape = SubResource("WorldBoundaryShape2D_ig7tw")
 
-[node name="Area2D" parent="." unique_id=1825154443 instance=ExtResource("2_0xm2m")]
-position = Vector2(624, 461)
+[node name="Portal" parent="." unique_id=1738331001 instance=ExtResource("2_0xm2m")]
+position = Vector2(807, 510)
+
+[node name="Label" type="Label" parent="." unique_id=909309386]
+offset_left = 10.0
+offset_top = 1.0
+offset_right = 1175.0
+offset_bottom = 56.0
+theme_override_colors/font_color = Color(1, 0, 1, 1)
+theme_override_font_sizes/font_size = 39
+text = "Flowkenuinly go through the portal to start the game twin🥀"

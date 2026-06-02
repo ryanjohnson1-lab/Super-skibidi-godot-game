@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://d2ppyp7gbmh2a"]
+
+[ext_resource type="Texture2D" uid="uid://bfyhhbeset1qx" path="res://turtle.jpg" id="1_oabld"]
+
+[node name="Background" type="Node2D" unique_id=131879365]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=180154515]
+texture = ExtResource("1_oabld")
