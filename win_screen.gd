@@ -1,4 +1,4 @@
-extends Area2D
+extends Control
 
 
 # Called when the node enters the scene tree for the first time.
@@ -10,5 +10,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func _on_body_entered(body: Node2D) -> void:
-	get_tree().change_scene_to_file("res://win_screen.tscn")
+
+
+func _on_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://main.tscn")

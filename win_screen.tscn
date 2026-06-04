@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://c2nbwdblwc354"]
+
+[ext_resource type="Texture2D" uid="uid://b2xsg6vufyfn1" path="res://speed.jpg" id="1_l2arl"]
+[ext_resource type="Script" uid="uid://dxacn51c2gpmd" path="res://win_screen.gd" id="1_wmwda"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l2arl"]
+bg_color = Color(0.5921569, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wmwda"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_731nq"]
+bg_color = Color(0, 18.892157, 0, 1)
+
+[node name="WinScreen" type="Control" unique_id=881334873]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_wmwda")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=482905979]
+position = Vector2(560, 324.00003)
+scale = Vector2(6.4052625, 2.3052628)
+texture = ExtResource("1_l2arl")
+
+[node name="Label" type="Label" parent="." unique_id=1165380282]
+layout_mode = 0
+offset_left = 222.0
+offset_top = 199.0
+offset_right = 948.0
+offset_bottom = 268.0
+theme_override_colors/font_color = Color(1, 0, 1, 1)
+theme_override_font_sizes/font_size = 50
+text = "You mogged the game twin🗿"
+
+[node name="Button" type="Button" parent="." unique_id=520490239]
+layout_mode = 0
+offset_left = 488.0
+offset_top = 338.0
+offset_right = 643.0
+offset_bottom = 388.0
+theme_override_colors/font_color = Color(0.827451, 0.58431375, 0.4627451, 1)
+theme_override_colors/font_pressed_color = Color(0, 1, 0.7254902, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 1, 1, 1)
+theme_override_colors/icon_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_l2arl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wmwda")
+theme_override_styles/hover = SubResource("StyleBoxFlat_731nq")
+text = "Play again"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

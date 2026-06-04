@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c2ve5s5rluq5s" path="res://portal.gd" id="1_ef3v5"]
 [ext_resource type="Texture2D" uid="uid://dfp71ihonv2no" path="res://portalInside.png" id="2_6r214"]
 [ext_resource type="Script" uid="uid://dj06c41kwiild" path="res://sprite_2d.gd" id="3_grrij"]
-[ext_resource type="Texture2D" uid="uid://c2jiak1tpn8an" path="res://portalFrame.png" id="4_2pgh4"]
+[ext_resource type="Texture2D" uid="uid://blvx8u8usd1x4" path="res://portalFrame.png" id="4_2pgh4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ef3v5"]
 radius = 60.00833
@@ -15,14 +15,14 @@ script = ExtResource("1_ef3v5")
 shape = SubResource("CircleShape2D_ef3v5")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=972190149]
-position = Vector2(2.3841858e-07, 1.0000002)
+position = Vector2(1.0000001, 2)
 scale = Vector2(8.836538, 8.836538)
 texture = ExtResource("2_6r214")
 script = ExtResource("3_grrij")
 
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=359217991]
-position = Vector2(-4.7683716e-07, -4.7683716e-07)
-scale = Vector2(9.151443, 9.151443)
+position = Vector2(1, 2)
+scale = Vector2(8.855469, 8.855469)
 texture = ExtResource("4_2pgh4")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
