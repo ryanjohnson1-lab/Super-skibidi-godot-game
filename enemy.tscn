@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://b8mpiu47265ip"]
+
+[ext_resource type="Texture2D" uid="uid://iaay8ey1h5le" path="res://evil slime.png" id="1_7k104"]
+
+[sub_resource type="GDScript" id="GDScript_7k104"]
+script/source = "extends CharacterBody2D
+
+@export var speed = 100.0
+
+var direction = 1
+var start_x
+
+func _ready():
+	start_x = global_position.x
+
+func _physics_process(delta):
+	velocity.x = speed * direction
+	move_and_slide()
+
+	if global_position.x < start_x - 225:
+		direction = 1
+
+	if global_position.x > start_x + 250:
+		direction = -1
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	get_tree().change_scene_to_file(\"res://lose_screen.tscn\")
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gyqm"]
+size = Vector2(34, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qi2p4"]
+size = Vector2(47, 30)
+
+[node name="enemy" type="Node2D" unique_id=422436156]
+
+[node name="enemyBody" type="CharacterBody2D" parent="." unique_id=1929600406]
+script = SubResource("GDScript_7k104")
+
+[node name="Sprite2D" type="Sprite2D" parent="enemyBody" unique_id=1014872705]
+position = Vector2(-1, -3)
+scale = Vector2(3.403846, 3.4038463)
+texture = ExtResource("1_7k104")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemyBody" unique_id=2015180258]
+position = Vector2(0, 17.5)
+shape = SubResource("RectangleShape2D_4gyqm")
+
+[node name="Area2D" type="Area2D" parent="enemyBody" unique_id=408211637]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemyBody/Area2D" unique_id=1967492510]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_qi2p4")
+
+[connection signal="body_entered" from="enemyBody/Area2D" to="enemyBody" method="_on_area_2d_body_entered"]

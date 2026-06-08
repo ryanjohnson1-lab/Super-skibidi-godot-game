@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://cro2fedn7ehuj"]
+
+[ext_resource type="Texture2D" uid="uid://u832ecpcexwi" path="res://son.jpg" id="1_cbtnu"]
+[ext_resource type="Script" uid="uid://35esjbm26nfj" path="res://button.gd" id="2_h3ym8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cbtnu"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h3ym8"]
+bg_color = Color(0.6, 1, 0.6, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7hir2"]
+bg_color = Color(0.36904877, 0.14042479, 0, 1)
+
+[node name="loseScreen" type="Node2D" unique_id=2016279590]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=893834858]
+position = Vector2(575, 325.5)
+scale = Vector2(5.073593, 3.142202)
+texture = ExtResource("1_cbtnu")
+
+[node name="Label" type="Label" parent="." unique_id=563092545]
+offset_left = 177.0
+offset_top = 10.0
+offset_right = 979.0
+offset_bottom = 79.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "You got slimed out brochacho 💀"
+
+[node name="Button" type="Button" parent="." unique_id=34488550]
+offset_left = 516.0
+offset_top = 333.0
+offset_right = 604.0
+offset_bottom = 364.0
+theme_override_colors/font_color = Color(0, 0.8745098, 0.8745098, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 1, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.3722895, 0.25187176, 1.4439226e-07, 1)
+theme_override_colors/icon_normal_color = Color(0, 1, 0, 1)
+theme_override_colors/icon_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0.36078432, 0.1882353, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 0.36078432, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_cbtnu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h3ym8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7hir2")
+text = "Play Again"
+script = ExtResource("2_h3ym8")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

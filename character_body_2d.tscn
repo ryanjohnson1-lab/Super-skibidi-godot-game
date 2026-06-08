@@ -1,13 +1,40 @@
 [gd_scene format=3 uid="uid://bes6cltrbh2sx"]
 
 [ext_resource type="Texture2D" uid="uid://dq4l54ewjx5c5" path="res://pixil-frame-0.png" id="1_f50pn"]
-[ext_resource type="Script" uid="uid://bpdhwy8alv6qi" path="res://character_body_2d.gd" id="1_ij6vw"]
+
+[sub_resource type="GDScript" id="GDScript_f50pn"]
+script/source = "extends CharacterBody2D
+
+
+const SPEED = 400.0
+const JUMP_VELOCITY = -500.0
+
+
+func _physics_process(delta: float) -> void:
+	# Add the gravity.
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+
+	# Handle jump.
+	if Input.is_action_just_pressed(\"ui_accept\") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+
+	# Get the input direction and handle the movement/deceleration.
+	# As good practice, you should replace UI actions with custom gameplay actions.
+	var direction := Input.get_axis(\"ui_left\", \"ui_right\")
+	if direction:
+		velocity.x = direction * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+
+	move_and_slide()
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f50pn"]
 size = Vector2(54, 34)
 
 [node name="Player" type="CharacterBody2D" unique_id=1793049614]
-script = ExtResource("1_ij6vw")
+script = SubResource("GDScript_f50pn")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=882414205]
 scale = Vector2(3, 3)

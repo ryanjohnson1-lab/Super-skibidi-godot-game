@@ -5,8 +5,14 @@
 [ext_resource type="PackedScene" uid="uid://cg3taedu2ef0t" path="res://platform.tscn" id="3_hn12h"]
 [ext_resource type="Script" uid="uid://cwd0engr21l3g" path="res://goal.gd" id="3_rka8t"]
 [ext_resource type="PackedScene" uid="uid://b612v54e2ij0m" path="res://goal.tscn" id="4_ihfcg"]
+[ext_resource type="PackedScene" uid="uid://b8mpiu47265ip" path="res://enemy.tscn" id="6_5hph3"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hbghi"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rka8t"]
+distance = 4.72083e-06
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5hph3"]
 
 [node name="Level1" type="Node2D" unique_id=1669001463]
 
@@ -113,5 +119,21 @@ position = Vector2(-102, 152)
 
 [node name="Player" parent="." unique_id=1793049614 instance=ExtResource("2_hbghi")]
 position = Vector2(44, 613)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1046309528]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=420281464]
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_rka8t")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=14419940]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=1651340123]
+position = Vector2(1153, 1)
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_5hph3")
+
+[node name="enemy" parent="." unique_id=422436156 instance=ExtResource("6_5hph3")]
+position = Vector2(418, 329)
 
 [connection signal="body_entered" from="Goal" to="Goal" method="_on_body_entered"]
